@@ -26,4 +26,5 @@ foreach ($app in $bloatware) {
         # Try-Catch to remove app, if successful it prints removed. If it fails it tells the user.
 }
 
+# Smoothly ends the log file and saves to path listed at start
 Stop-Transcript
