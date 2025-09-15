@@ -1,7 +1,9 @@
 ﻿# Debloat These Windows! -- Trevor Belt 
     # Run as Administrator if not working.
 # NOTE: If script still fails to run, open PowerShell manually and enter the command:
-# Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force
+    # *** < Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted > ***
+
+# This sets ExecutionPolicy to allow running of scripts for current PS session. Will revert back to default
 
 # Captures all output for the user to review with current timestamp  
     # Add -Append to not overwrite if desired 
@@ -28,3 +30,9 @@ foreach ($app in $bloatware) {
 
 # Smoothly ends the log file and saves to path listed at start
 Stop-Transcript
+# Little UI update so user has transparency of what is happening. 
+Write-Host "--------------------------------Debloat Complete-----------------------------------------"
+Write-Host "Execution Policy will revert back to Restricted upon closing or Ctrl-C..."
+
+# Quit Terminal afterwards to revert the Execution Policy for user security. Makes it so user has no extra work.
+exit 
